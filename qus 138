@@ -1,0 +1,28 @@
+Q138: Print all enum names and integer values using a loop.
+
+/*
+Sample Test Cases:
+Input 1:
+No input
+Output 1:
+RED=0
+YELLOW=1
+GREEN=2
+
+*/
+#include <stdio.h>
+#define TRAFFIC_LIGHTS(X) \
+    X(RED, 0) \
+    X(YELLOW, 1) \
+    X(GREEN, 2)
+#define ENUM_DEFINITION(name, value) name = value,
+enum Light {
+    TRAFFIC_LIGHTS(ENUM_DEFINITION)
+};
+#define ENUM_PRINTER(name, value) printf("%s=%d\n", #name, name);
+
+int main() {
+    TRAFFIC_LIGHTS(ENUM_PRINTER)
+
+    return 0;
+}
